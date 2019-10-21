@@ -66,7 +66,7 @@
                   j.width >= currentLineDay.start &&
                   j.width <= currentLineDay.end
               }"
-              >{{ j.date }}</span
+              >{{ j.date }}日</span
             >
             <span
               class="dateBG"
