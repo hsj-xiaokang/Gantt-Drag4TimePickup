@@ -1739,7 +1739,7 @@ export default {
     .rightCurDrag {
       cursor: e-resize;
       width: 10px;
-      background-color: #000;
+      background-color: rgb(64,158,255);
       height: 16px;
       position: absolute;
       right: -15px;
@@ -1751,7 +1751,7 @@ export default {
     .leftCurDrag {
       cursor: e-resize;
       width: 10px;
-      background-color: #000;
+      background-color:rgb(64,158,255);
       height: 16px !important;
       position: absolute;
       left: -15px;
