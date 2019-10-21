@@ -1806,7 +1806,7 @@ export default {
     display: flex;
     position: absolute;
     left: 0px;
-    top: 21px;
+    top: 13px;
     height: calc(100% - 21px);
     .weekday {
       color: #c7c7c7;
