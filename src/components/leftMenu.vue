@@ -28,9 +28,9 @@
       </el-table-column>
       <el-table-column align="center" :resizable="false" width="40">
         <template slot="header">
+           <!-- @click="handleShowHeaderCheckBox" -->
           <i
             class="el-icon-setting icons"
-            @click="handleShowHeaderCheckBox"
           ></i>
         </template>
         <template slot-scope="scope">
@@ -166,7 +166,7 @@ export default {
       if (index == 0) {
         this.$emit("handlerEdit", this.currentRow);
       } else if (index == 1) {
-       
+
         if (name == "删除") {
           this.$confirm("此操作将删除时间区间, 是否继续?", "提示", {
             confirmButtonText: "确定",
@@ -180,7 +180,7 @@ export default {
             .catch(() => {});
           return;
         }
-       
+
       }
     }
   }

@@ -233,7 +233,7 @@
             @thunkMouseup="thunkMouseup"
             @thunkMousemove="thunkMousemove"
             v-show="item.type == '1'"
-          
+
           ></slider>
           <div
             class="leftCurDrag"
@@ -352,7 +352,7 @@ export default {
       //定时器
       timer: null,
       //leftMenu的右侧伸缩线
-      rightLineX: 400,
+      rightLineX: 350,
       fixdTopMonth: "",
       //近三年的所有年月日
       allDays: [],
@@ -862,7 +862,7 @@ export default {
         end: 0
       };
     },
- 
+
     //leftMenu宽度设置
     rightLineMousedown(e) {
       let cx = e.clientX;
@@ -1663,7 +1663,7 @@ export default {
     }
   }
   .date {
-    display: flex;	
+    display: flex;
     height: 100vh !important;
     height: calc(100% - 40px);
     position: relative;
