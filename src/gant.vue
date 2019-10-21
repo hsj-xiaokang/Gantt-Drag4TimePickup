@@ -1663,7 +1663,8 @@ export default {
     }
   }
   .date {
-    display: flex;
+    display: flex;	
+    height: 100vh !important;
     height: calc(100% - 40px);
     position: relative;
     .topMonth {
@@ -1849,7 +1850,8 @@ export default {
       }
       .dateBG {
         display: block;
-        height: 100%;
+        height: 100% !important;
+		border: 1px solid rgb(241,243,244);
       }
       .today {
         position: relative;
