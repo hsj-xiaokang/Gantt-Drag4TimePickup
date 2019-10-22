@@ -261,27 +261,6 @@
               )
             "
           ></div>
-          <div
-            class="stoneLine"
-            :style="{ top: -12 + 52 - item.top + 'px' }"
-            v-if="item.type == '2'"
-            @mouseenter="stoneLineMouseenter"
-          ></div>
-          <div class="milestone" v-if="item.type == '2'">
-            <i class="el-icon-check"></i>
-          </div>
-        </div>
-        <div
-          class="group"
-          :style="{
-            top: item.top + 'px',
-            left: item.left + 'px',
-            width: item.widthMe + 'px'
-          }"
-          v-if="item.type == '3'"
-          :key="item.id + 'zzzzz'"
-        >
-          <div class="progress" :style="{ width: item.per + '%' }"></div>
         </div>
       </template>
       <transition name="el-zoom-in-center">
