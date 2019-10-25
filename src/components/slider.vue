@@ -1,6 +1,6 @@
 <template>
-  <div class="slider" ref="slider" :style="{ width: '100%' }">
-    <div class="process" :style="{ width }"></div>
+  <div class="slider" ref="slider" :style="{ width: '100%',height: '98%' }">
+    <div class="process" :style="{ width,height: '98%' }"></div>
     <div class="thunk" ref="trunk" :style="{ left }">
       <div class="block">
         <!-- <i class="el-icon-caret-top" @mousedown.stop="thunkMousedown"></i> -->

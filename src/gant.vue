@@ -181,6 +181,15 @@
           </el-dropdown-menu>
         </el-dropdown>
       </div>
+      <!-- 甘特图的slider表格外框 何胜金新增 -->
+      <div v-for="(l, index) in list"
+           :key="index + 'ss'"
+           :style="{ 
+             width: currentDaySize.value * days.length + 'px',
+             top: (index > 0 ? (33 * (index + 1) + 7 * (index)) : (33 * (index + 1))) + 'px' 
+            }"
+           class="hsjGridh" >
+      </div>
       <template v-for="(item, index) in computedList">
         <div
           v-if="item.delete == '0'"
@@ -188,7 +197,8 @@
           :style="{
             left: item.left + 'px',
             width: item.widthMe + 'px',
-            top: item.top + 'px'
+            top: item.top - 19 + 'px',
+            height: item.height + 'px'
           }"
           v-show="(item.type == '1' || item.type == '2') && item.isShow"
           :ref="'line' + item.id"
@@ -424,6 +434,7 @@ export default {
     handlerCheckList() {
       let l = [
         {
+          height:40,
           name: "2",
           ower: "",
           type: "1",
@@ -680,6 +691,7 @@ export default {
       let index = this.list.length;
       obj.id=100;
       obj.per = 100;
+      obj.height=40;
       obj.delete = '0';
       obj.startTime = obj.planTime.length > 0 ? obj.planTime[0] : obj.stoneTime;
       obj.endTime = obj.planTime.length > 0 ? obj.planTime[1] : obj.stoneTime;
@@ -1845,6 +1857,15 @@ export default {
         top: 0px;
       }
     }
+  }
+  .hsjGridh{
+    // width:43840px;
+    height:37px;
+    display: flex;
+    position: absolute;
+    left: 0px;
+    // top: 33px;
+    border: 2px solid rgb(248,248,248);
   }
 }
 </style>
