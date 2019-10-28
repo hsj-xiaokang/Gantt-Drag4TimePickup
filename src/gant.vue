@@ -28,6 +28,20 @@
         ref="rightLine"
         @mousedown="rightLineMousedown"
       ></div>
+
+   
+   <div class="block" style="position: absolute; bottom: 0%;">
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="currentPage4"
+      :page-sizes="[100, 200, 300, 400]"
+      :page-size="10"
+      layout="prev, pager, next, jumper"
+      :total="1000000">
+    </el-pagination>
+  </div>
+
     </div>
     <div class="date" :style="{ left: rightLineX + 2 + 'px' }">
       <div class="years" v-for="item in allDays" :key="item.year">
@@ -318,6 +332,7 @@
         ref="dialogAdd"
       ></dialogAdd>
     </el-dialog>
+
   </div>
 </template>
 
@@ -333,6 +348,7 @@ export default {
   },
   data() {
     return {
+      currentPage4: 1,
       //当前项是否是子集
       isChildren: false,
       dialogVal: false,
@@ -341,7 +357,7 @@ export default {
       //定时器
       timer: null,
       //leftMenu的右侧伸缩线
-      rightLineX: 350,
+      rightLineX: 450,
       fixdTopMonth: "",
       //近三年的所有年月日
       allDays: [],
@@ -425,6 +441,12 @@ export default {
     }
   },
   methods: {
+     handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(val) {
+        console.log(`当前页: ${val}`);
+      },
     //保存当前的所有数据
     handlerSaveData() {
       console.log(this.list);
@@ -670,7 +692,7 @@ export default {
     computedTimeWidth(startTime, endTime) {
       let left =
         (Math.floor(
-          startTime - new Date(`${this.currentYear - 1}/01/01`).getTime()
+          startTime - new Date(`${this.currentYear - 3}/01/01`).getTime()
         ) /
           (1000 * 60 * 60 * 24)) *
         this.currentDaySize.value;
@@ -964,7 +986,7 @@ export default {
         (Math.floor(
           new Date(
             `${this.currentYear}/${this.currentMonth}/${this.currentDay}`
-          ).getTime() - new Date(`${this.currentYear - 1}/01/01`).getTime()
+          ).getTime() - new Date(`${this.currentYear - 3}/01/01`).getTime()
         ) /
           (1000 * 60 * 60 * 24)) *
         this.currentDaySize.value -
@@ -1193,7 +1215,7 @@ export default {
     computedWithTime(width, time) {
       let startTime =
         (width / this.currentDaySize.value) * (1000 * 60 * 60 * 24) +
-        new Date(`${this.currentYear - 1}/01/01`).getTime();
+        new Date(`${this.currentYear - 3}/01/01`).getTime();
       let s = new Date(startTime);
       if (time && time == true) {
         return s.getTime();
@@ -1419,7 +1441,7 @@ export default {
     },
     getAllDate() {
       let obj = {};
-      let arr = [this.currentYear - 1, this.currentYear, this.currentYear + 1];
+      let arr = [this.currentYear - 3,this.currentYear - 2,this.currentYear - 1, this.currentYear, this.currentYear + 1, this.currentYear + 2, this.currentYear + 3];
       arr.forEach(item => {
         obj.year = item;
         obj.days = this.isLeapYear(item) ? 365 : 366;
@@ -1867,5 +1889,10 @@ export default {
     // top: 33px;
     border: 2px solid rgb(248,248,248);
   }
+}
+.el-pagination__jump {
+    margin-left: 0px !important; 
+    font-weight: 400;
+    color: #606266;
 }
 </style>
