@@ -1890,9 +1890,5 @@ export default {
     border: 2px solid rgb(248,248,248);
   }
 }
-.el-pagination__jump {
-    margin-left: 0px !important; 
-    font-weight: 400;
-    color: #606266;
-}
+
 </style>
